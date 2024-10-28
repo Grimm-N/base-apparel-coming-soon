@@ -1,0 +1,265 @@
+:root {
+    --desaturated-red: hsl(0, 36%, 70%);
+    --desaturated-red-transparent: hsla(0, 36%, 70%, 0.5);
+    --soft-red: hsl(0, 93%, 68%);
+    --dark-grayish-red: hsl(0, 6%, 24%);
+    --gradient-pink: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+    --gradient-white: linear-gradient(135deg, hsl(0, 94%, 94%), hsl(0, 81%, 87%));
+    --thin: 300;
+    --normal: 400;
+    --bold: 600;
+}
+
+@font-face {
+    font-family: 'JosefinSans';
+    src: url('../fonts/JosefinSans-VariableFont_wght.ttf') format('truetype'),
+        url('../fonts/JosefinSans-VariableFont_wght.woff') format('woff'),
+        url('../fonts/JosefinSans-VariableFont_wght.woff2') format('woff2');
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px); 
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1); 
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+body {
+    font-size: 1rem;
+    font-family: 'JosefinSans';
+    font-weight: var(--normal);
+    line-height: 1.5;
+    background-image: url('../images/bg.svg');
+    background-size: cover;
+    background-position: bottom;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(100%, 23.44rem);
+    max-height: 50rem;
+    margin: 0 auto;
+}
+
+.card__logo {
+    display: flex;
+    padding: 2rem;
+    width: 100%;
+}
+
+.card__logo img {
+    align-self: flex-start;
+    width: 33%;
+    height: auto;
+}
+
+.card__image {
+    overflow: hidden; /* for desktop vers */
+}
+
+.card__image img {
+    width: 100%;
+    height: auto;
+}
+
+.card__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 4rem 2rem 2rem;
+}
+
+.card__title {
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    letter-spacing: 0.7rem;
+    font-weight: var(--bold);
+    color: var(--dark-grayish-red);
+    margin-bottom: 1rem;
+}
+
+.card__title span {
+    color: var(--desaturated-red);
+    font-weight: var(--thin);
+}
+
+.card__text {
+    color: var(--desaturated-red);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.card__form {
+    width: 100%;
+    position: relative;
+}
+
+.card__input {
+    padding: 0.92rem 1.5rem;
+    border: 0.1rem solid var(--desaturated-red);
+    border-radius: 2rem;
+    width: 100%;
+    outline: none;
+}
+
+.card__input:focus {
+    border-color: var(--desaturated-red); 
+}
+
+.card__input:invalid {
+    border-color: var(--soft-red); 
+    border-width: 0.15rem;
+}
+
+.card__input::placeholder {
+    font-size: 0.85rem;
+    color: var(--desaturated-red);
+}
+
+.submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    width: 4rem;
+    border: none;
+    border-radius: 2rem;
+    background: var(--gradient-pink);
+    transition: all 0.3s ease;
+    box-shadow: 0.5rem 0.5rem 1rem var(--desaturated-red-transparent),
+                -0.5rem 0.5rem 1rem var(--desaturated-red-transparent);
+}
+
+.submit:hover {
+    background: var(--gradient-white);
+}
+
+.error__icon {
+    position: absolute;
+    top: 0.75rem;
+    right: 5rem;
+    opacity: 0;
+}
+
+.error__notice {
+    font-size: 0.85rem;
+    color: var(--soft-red);
+    padding: 0.5rem 1.5rem;
+    justify-self: flex-start;
+}
+
+.error__icon,
+.error__notice {
+    opacity: 0; 
+    transition: opacity 0.5s ease, visibility 0.5s ease; 
+    visibility: hidden;
+}
+
+.error__icon.show,
+.error__notice.show {
+    opacity: 1; 
+    visibility: visible; 
+}
+
+
+/* Grimm's social links */
+.grimm__container {
+    display: flex;
+    position: relative;
+}
+
+.grimm__toggle {
+    position: absolute;
+    right: 0;
+    align-self: center;
+    background: none;
+    border: none; 
+    cursor: pointer; 
+    width: auto;
+    padding: 0;
+    margin: 0;
+}
+
+.grimm__toggle.pulsing {
+    animation: pulse 1s infinite;
+}
+
+.grimm__toggle img {
+    width: 3rem;
+    cursor: pointer; 
+}
+
+.social__menu {
+    display: none; 
+    position: absolute;
+    top: 50%;
+    right: 3.5rem;
+    transform: translateY(-50%);
+    background-color: transparent;
+    transition: all 0.3s ease; 
+}
+
+.social__menu a {
+    display: flex;
+    align-items: center;
+}
+
+.social__menu a svg:hover {
+    fill: red;
+}
+
+.social__menu svg {
+    width: 2rem;
+    height: auto;
+}
+
+.social__menu.show {
+    display: flex; 
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.social__menu.show a {
+    opacity: 0; 
+    animation: fadeIn 0.5s forwards; 
+}
+
+.social__menu.show a:nth-child(4) {
+    animation-delay: 0.1s;
+}
+.social__menu.show a:nth-child(3) {
+    animation-delay: 0.2s;
+}
+.social__menu.show a:nth-child(2) {
+    animation-delay: 0.3s;
+}
+.social__menu.show a:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+footer {
+    display: none;
+}

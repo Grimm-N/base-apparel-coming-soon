@@ -1,0 +1,123 @@
+@media (min-width: 60rem) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        line-height: 1.6;
+    }
+
+    .card {
+        display: grid;
+        grid-template-columns: 57.6% auto;
+        grid-template-rows: auto 1fr;
+        width: 90rem;
+        margin: 0;
+    }
+
+    .card__logo {
+        grid-column: 1;
+        grid-row: 1;
+        padding: 4.1rem 0 0 10rem;
+    }
+
+    .card__logo img {
+        width: 23%;
+    }
+
+    .card__image {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        height: 100%;
+    }
+
+    .card__image img {
+        content: url(../images/hero-desktop.jpg);
+        object-fit: cover;
+        height: 100%;
+    }
+
+    .card__content {
+        grid-column: 1;
+        grid-row: 2;
+        text-align: left;
+        align-self: flex-start;
+        align-items: flex-start;
+        width: 72%;
+        padding: 8.5rem 0 0 10rem;
+    }
+
+    .card__title {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .card__title span {
+        letter-spacing: 1.1rem;
+    }
+
+    .card__text {
+        font-size: 1rem;
+        line-height: 1.75;
+        margin-bottom: 2.5rem;
+    }
+
+    .card__form {
+        align-self: flex-start;
+    }
+
+    .card__input {
+        padding: 1.2rem 1.5rem 1rem 2rem;
+    }
+
+    .card__input::placeholder {
+        font-size: 1rem;
+    }
+
+    .submit {
+        right: 0;
+        height: 3.5rem;
+        width: 6.3rem;
+    }
+
+    .error__icon {
+        right: 7.3rem;
+    }
+
+    .error__notice {
+        font-size: 0.9rem;
+        padding: 0.5rem 2rem;
+    }
+
+/* Grimm's social links */
+.grimm__container {
+    padding-left: 10rem;
+    position: absolute;
+    bottom: 4rem;
+    left: 0;
+}
+
+.grimm__toggle {
+    align-self: flex-start;
+}
+
+.social__menu {
+    display: none; 
+    position: absolute;
+    top: 1.5rem;
+    left: 10.5rem;
+}
+
+.social__menu.show a:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.social__menu.show a:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.social__menu.show a:nth-child(3) {
+    animation-delay: 0.3s;
+}
+.social__menu.show a:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+}
